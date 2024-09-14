@@ -1,61 +1,112 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
+import Css from "./icons/Css.astro";
+import GitHub from "./icons/GitHub.astro";
+import React from "./icons/React.astro";
+import Java from "./icons/Java.astro";
+import Spring from "./icons/Spring.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import LinkButton from "./LinkButton.astro";
+import Link from "./icons/Link.astro";
+
+interface TagInfo {
+  name: string;
+  class: string;
+  icon?: any; // El tipo puede ser un componente (Astro o JSX) o cualquier valor.
 }
 
-const { href, title, body } = Astro.props;
+const TAGS: Record<string, TagInfo> = {
+  CSS: {
+    name: 'CSS',
+    class: 'bg-[#01394f] text-white',
+    icon: Css
+  },
+  NEXT: {
+    name: 'Next.js',
+    class: 'bg-black text-white',
+    icon: GitHub // Referencia al componente del ícono
+  },
+  TAILWIND: {
+    name: 'Tailwind CSS',
+    class: 'bg-black text-white',
+    icon: GitHub // Referencia al componente del ícono
+  },
+  REACT: {
+    name: 'React',
+    class: 'bg-[#0c1d40] text-white',
+    icon: React
+  },
+  JAVA: {
+    name: 'Java',
+    class: 'bg-[#361920] text-white',
+    icon: Java
+  },
+  SPRING: {
+    name: 'Spring',
+    class: 'bg-[#0c3317] text-white',
+    icon: Spring
+  },
+  KOTLIN: {
+    name: 'Kotlin',
+    class: 'bg-[#44234a] text-white',
+    icon: Kotlin
+  },
+  ASTRO: {
+    name: 'Astro',
+    class: 'bg-black text-white',
+    icon: AstroIcon
+  }
+};
+
+const { title, description, link, github, image, tags } = Astro.props as {
+  title: string;
+  description: string;
+  link: string;
+  github: string;
+  image: string;
+  tags: string[];
+};
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
-</style>
+<div class="max-w-sm rounded-lg shadow bg-[#190d21] border-gray-700 hover:scale-105 transition flex flex-col">
+    <a href="#">
+      <img class="rounded-t-lg" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
+    </a>
+    <div class="p-5 flex flex-col flex-1">
+      <a href="#">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{title}</h5>
+      </a>
+      <p class="py-1 mb-3 font-normal text-gray-400">{description}</p>
+  
+      <!-- Footer con mt-auto para que se mantenga abajo -->
+      <footer class="flex flex-col justify-center mt-auto gap-x-4 pt-2">
+        <ul class="flex gap-2 mb-2">
+            {tags.map((tag: string) => {
+              const tagInfo = TAGS[tag] || {} as TagInfo;
+              return (
+                <li>
+                  <span class={`flex gap-x-2 px-3 py-2 text-xs rounded-full ${tagInfo.class || ''}`}>
+                    {tagInfo.icon ? <tagInfo.icon class="size-4" /> : null}
+                    {tagInfo.name}
+                  </span>
+                </li>
+              );
+            })}
+        </ul>
+        <div class="flex justify-center gap-3 mt-2">
+        {github && (
+          <LinkButton href={github}>
+            <GitHub class="size-5" />
+            Code
+          </LinkButton>
+        )}
+        {link && (
+          <LinkButton href={link}>
+            <Link class="size-4" />
+            Preview
+          </LinkButton>
+        )}
+        </div>
+      </footer>
+    </div>
+  </div>
