@@ -23,38 +23,37 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 
-	<body class="relative text-white">
-		<div 
-			class="absolute top-0 z-[-2] h-full w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(110,50,220,0.3),rgba(255,255,255,0))]"
-		>
-		</div>
+	<body class="relative text-white bg-slate-950 bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
 		<Header />
 		<slot />
 		<Footer />
+	  
 		<style is:global>
-			:root {
-				color-scheme: light dark;
-			}
-		
+		  :root {
+			color-scheme: light dark;
+		  }
+	  
+		  html {
+			font-family: 'Fira Code Variable', system-ui, sans-serif;
+			scroll-behavior: smooth;
+		  }
+	  
+		  body {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			overscroll-behavior: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		  }
+	  
+		  @media (prefers-reduced-motion: reduce) {
 			html {
-				font-family: 'Fira Code Variable', system-ui, sans-serif;
-				scroll-behavior: smooth;
+			  scroll-behavior: auto;
 			}
-		
-			body {
-				
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				overscroll-behavior: none;
-			}
-		
-			@media (prefers-reduced-motion: reduce) {
-				html {
-					scroll-behavior: auto;
-				}
-			}
+		  }
 		</style>
-	</body>
+	  </body>
 </html>
 
