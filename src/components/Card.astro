@@ -1,4 +1,5 @@
 ---
+import HtmlIcon from "./icons/HtmlIcon.astro";
 import Css from "./icons/Css.astro";
 import GitHub from "./icons/GitHub.astro";
 import React from "./icons/React.astro";
@@ -6,6 +7,8 @@ import Java from "./icons/Java.astro";
 import Spring from "./icons/Spring.astro";
 import Kotlin from "./icons/Kotlin.astro";
 import AstroIcon from "./icons/AstroIcon.astro";
+import PhpIcon from "./icons/PhpIcon.astro";
+import LaravelIcon from "./icons/LaravelIcon.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
 
@@ -16,6 +19,11 @@ interface TagInfo {
 }
 
 const TAGS: Record<string, TagInfo> = {
+  HTML: {
+    name: 'HTML',
+    class: 'bg-[#8f2603] text-white',
+    icon: HtmlIcon
+  },
   CSS: {
     name: 'CSS',
     class: 'bg-[#01394f] text-white',
@@ -55,6 +63,16 @@ const TAGS: Record<string, TagInfo> = {
     name: 'Astro',
     class: 'bg-black text-white',
     icon: AstroIcon
+  },
+  PHP: {
+    name: 'PHP',
+    class: 'bg-[#374169] text-white',
+    icon: PhpIcon
+  },
+  LARAVEL: {
+    name: 'Laravel',
+    class: 'bg-[#360101] text-white',
+    icon: LaravelIcon
   }
 };
 
@@ -68,7 +86,7 @@ const { title, description, link, github, image, tags } = Astro.props as {
 };
 ---
 
-<div class="max-w-sm rounded-lg shadow bg-[#190d21] border-gray-700 hover:scale-105 transition flex flex-col">
+<div class="max-w-sm rounded-lg shadow bg-[#2f2139] border-gray-700 hover:shadow-md hover:shadow-gray-950 transition flex flex-col">
     <a href="#">
       <img class="rounded-t-lg" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
     </a>
@@ -80,7 +98,7 @@ const { title, description, link, github, image, tags } = Astro.props as {
   
       <!-- Footer con mt-auto para que se mantenga abajo -->
       <footer class="flex flex-col justify-center mt-auto gap-x-4 pt-2">
-        <ul class="flex gap-2 mb-2">
+        <ul class="flex gap-2 mb-3">
             {tags.map((tag: string) => {
               const tagInfo = TAGS[tag] || {} as TagInfo;
               return (
@@ -93,7 +111,7 @@ const { title, description, link, github, image, tags } = Astro.props as {
               );
             })}
         </ul>
-        <div class="flex justify-center gap-3 mt-2">
+        <div class="flex justify-center gap-3 mt-3">
         {github && (
           <LinkButton href={github}>
             <GitHub class="size-5" />
