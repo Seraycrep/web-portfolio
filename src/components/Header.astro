@@ -1,4 +1,4 @@
-<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto bg-transparent transition-all duration-300">
+<header class="top-0 z-10 flex items-center justify-center w-full mx-auto bg-transparent">
     <nav class="flex gap-10 px-5 py-8 text-sm font-medium rounded-full text-gray-200 justify-center items-center bg-opacity-30 h-11">
         <a href="#top" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Inicio</a>
         <a href="#proyectos" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Proyectos</a>
@@ -7,16 +7,5 @@
     </nav>
 </header>
 
-<!-- Change background color of header on scroll down -->
-<script>
-    const header = document.querySelector('header')
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 0) {
-            header!.classList.add('bg-black/50')
-        } else {
-            header!.classList.remove('bg-black/50')
-        }
-    })
-</script>
 
 
