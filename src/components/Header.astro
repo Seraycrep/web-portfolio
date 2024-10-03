@@ -1,11 +1,42 @@
-<header class="top-0 z-10 flex items-center justify-center w-full mx-auto bg-transparent">
-    <nav class="flex gap-10 px-5 py-8 text-sm font-medium rounded-full text-gray-200 justify-center items-center bg-opacity-30 h-11">
-        <a href="#top" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Inicio</a>
-        <a href="#proyectos" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Proyectos</a>
-        <a href="#sobre-mi" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Sobre mí</a>
-        <a href="#contacto" class="relative after:bg-gray-200 after:absolute after:h-[2px] after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Contacto</a>
+<header id="navbar" class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4 transition delay-100">
+    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-200 justify-center items-center bg-transparent h-11 transition delay-50">
+        <a href="#top" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 transition delay-50">Inicio</a>
+        <a href="#proyectos" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Proyectos</a>
+        <a href="#sobre-mi" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Sobre mí</a>
+        <a href="#contacto" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Contacto</a>
     </nav>
 </header>
 
+<!-- Change nav color when scrolling down -->
+<script>
+    const navbar = document.querySelector("nav");
+    window.onscroll = () => {
+        if (window.scrollY > 0) {
+            navbar!.classList.add("bg-black/50");
+            navbar!.classList.remove("bg-transparent");
+        } else {
+            navbar!.classList.add("bg-transparent");
+            navbar!.classList.remove("bg-black/50");
+        }
+    };
+</script>
 
+<script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
 
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll hacia abajo
+            navbar!.style.transform = "translateY(-150%)";
+        } else {
+            // Scroll hacia arriba
+            navbar!.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop;
+    });
+</script>
+  
