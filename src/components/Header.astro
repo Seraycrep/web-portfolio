@@ -1,9 +1,14 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
 <header id="navbar" class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4 transition delay-100">
-    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-200 justify-center items-center bg-transparent h-11 transition delay-50">
-        <a href="#top" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 transition delay-50">Inicio</a>
-        <a href="#proyectos" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Proyectos</a>
-        <a href="#sobre-mi" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Sobre mí</a>
-        <a href="#contacto" class="block px-3 py-1 rounded-lg hover:bg-amber-400 hover:text-amber-800 bg-transparent transition delay-50">Contacto</a>
+    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-800 dark:text-gray-200 justify-center items-center bg-transparent h-11 transition delay-50">
+        <a href="#top" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 transition delay-50">Inicio</a>
+        <a href="#proyectos" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Proyectos</a>
+        <a href="#sobre-mi" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Sobre mí</a>
+        <a href="#contacto" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Contacto</a>
+        <ThemeToggle />
     </nav>
 </header>
 
@@ -12,11 +17,13 @@
     const navbar = document.querySelector("nav");
     window.onscroll = () => {
         if (window.scrollY > 0) {
-            navbar!.classList.add("bg-black/50");
+            navbar!.classList.add("bg-white/80");
+            navbar!.classList.add("dark:bg-black/50");
             navbar!.classList.remove("bg-transparent");
         } else {
             navbar!.classList.add("bg-transparent");
-            navbar!.classList.remove("bg-black/50");
+            navbar!.classList.remove("bg-white/80");
+            navbar!.classList.remove("dark:bg-black/50");
         }
     };
 </script>

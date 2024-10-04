@@ -21,12 +21,12 @@ interface TagInfo {
 const TAGS: Record<string, TagInfo> = {
   HTML: {
     name: 'HTML',
-    class: 'bg-[#8f2603] text-white',
+    class: 'bg-[#f5a256] text-black dark:bg-[#8f2603] dark:text-white',
     icon: HtmlIcon
   },
   CSS: {
     name: 'CSS',
-    class: 'bg-[#01394f] text-white',
+    class: 'bg-[#60a4f7] text-black dark:bg-[#01394f] dark:text-white',
     icon: Css
   },
   NEXT: {
@@ -41,22 +41,22 @@ const TAGS: Record<string, TagInfo> = {
   },
   REACT: {
     name: 'React',
-    class: 'bg-[#0c1d40] text-white',
+    class: 'bg-[#8182d4] text-black dark:bg-[#0c1d40] dark:text-white',
     icon: React
   },
   JAVA: {
     name: 'Java',
-    class: 'bg-[#361920] text-white',
+    class: 'bg-[#f7994f] text-black dark:bg-[#361920] dark:text-white',
     icon: Java
   },
   SPRING: {
     name: 'Spring',
-    class: 'bg-[#0c3317] text-white',
+    class: 'bg-[#9fedb6] text-black dark:bg-[#0c3317] dark:text-white',
     icon: Spring
   },
   KOTLIN: {
     name: 'Kotlin',
-    class: 'bg-[#44234a] text-white',
+    class: 'bg-[#f48cff] text-black dark:bg-[#44234a] dark:text-white',
     icon: Kotlin
   },
   ASTRO: {
@@ -66,12 +66,12 @@ const TAGS: Record<string, TagInfo> = {
   },
   PHP: {
     name: 'PHP',
-    class: 'bg-[#374169] text-white',
+    class: 'bg-[#7986b8] text-black dark:bg-[#374169] dark:text-white',
     icon: PhpIcon
   },
   LARAVEL: {
     name: 'Laravel',
-    class: 'bg-[#360101] text-white',
+    class: 'bg-[#ffadae] text-black dark:bg-[#360101] dark:text-white',
     icon: LaravelIcon
   }
 };
@@ -86,15 +86,15 @@ const { title, description, link, github, image, tags } = Astro.props as {
 };
 ---
 
-<div class="max-w-sm rounded-lg shadow bg-[#2f2139] border-gray-700 hover:shadow-md hover:shadow-gray-950 transition flex flex-col">
+<div class="max-w-sm rounded-lg shadow bg-violet-300 dark:bg-[#2f2139] border-gray-700 hover:shadow-md hover:shadow-gray-950 transition flex flex-col">
     <a href="#">
       <img class="rounded-t-lg" src={image} alt={`Captura de pantalla del proyecto ${title}`} />
     </a>
     <div class="p-5 flex flex-col flex-1">
       <a href="#">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">{title}</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-800 dark:text-white">{title}</h5>
       </a>
-      <p class="py-1 mb-3 font-normal text-gray-400">{description}</p>
+      <p class="py-1 mb-3 font-normal text-gray-800 dark:text-gray-400">{description}</p>
   
       <!-- Footer con mt-auto para que se mantenga abajo -->
       <footer class="flex flex-col justify-center mt-auto gap-x-4 pt-2">
