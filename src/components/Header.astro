@@ -2,48 +2,70 @@
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
-<header id="navbar" class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4 transition delay-100">
-    <nav class="flex px-3 text-sm font-medium rounded-full text-gray-800 dark:text-gray-200 justify-center items-center bg-transparent h-11 transition delay-50">
-        <a href="#top" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 transition delay-50">Inicio</a>
-        <a href="#proyectos" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Proyectos</a>
-        <a href="#sobre-mi" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Sobre mí</a>
-        <a href="#contacto" class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50">Contacto</a>
-        <ThemeToggle />
-    </nav>
+<header
+  id="navbar"
+  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-4 transition delay-100"
+>
+  <nav
+    class="flex px-3 text-sm font-medium rounded-full border-gray-600 text-gray-800 dark:text-gray-200 justify-center items-center bg-transparent backdrop-blur-sm h-11 transition delay-50"
+  >
+    <a
+      href="#top"
+      class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 transition delay-50"
+      >Inicio</a
+    >
+    <a
+      href="#proyectos"
+      class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50"
+      >Proyectos</a
+    >
+    <a
+      href="#sobre-mi"
+      class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50"
+      >Sobre mí</a
+    >
+    <a
+      href="mailto:seraycrep@gmail.com"
+      class="block px-3 py-1 rounded-lg hover:bg-amber-800 dark:hover:bg-amber-400 hover:text-amber-400 dark:hover:text-amber-800 bg-transparent transition delay-50"
+      >Contacto</a
+    >
+    <ThemeToggle />
+  </nav>
 </header>
 
 <!-- Change nav color when scrolling down -->
 <script>
-    const navbar = document.querySelector("nav");
-    window.onscroll = () => {
-        if (window.scrollY > 0) {
-            navbar!.classList.add("bg-white/80");
-            navbar!.classList.add("dark:bg-black/50");
-            navbar!.classList.remove("bg-transparent");
-        } else {
-            navbar!.classList.add("bg-transparent");
-            navbar!.classList.remove("bg-white/80");
-            navbar!.classList.remove("dark:bg-black/50");
-        }
-    };
+  const navbar = document.querySelector("nav");
+  window.onscroll = () => {
+    if (window.scrollY > 0) {
+      navbar!.classList.add("bg-white/80");
+      navbar!.classList.add("dark:bg-black/50");
+      navbar!.classList.add("border");
+      navbar!.classList.remove("bg-transparent");
+    } else {
+      navbar!.classList.add("bg-transparent");
+      navbar!.classList.remove("border");
+      navbar!.classList.remove("bg-white/80");
+      navbar!.classList.remove("dark:bg-black/50");
+    }
+  };
 </script>
 
 <script>
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
+  let lastScrollTop = 0;
+  const navbar = document.getElementById("navbar");
 
-    window.addEventListener("scroll", function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > lastScrollTop) {
-            // Scroll hacia abajo
-            navbar!.style.transform = "translateY(-150%)";
-        } else {
-            // Scroll hacia arriba
-            navbar!.style.transform = "translateY(0)";
-        }
+    if (scrollTop > lastScrollTop) {
+      // Scroll hacia abajo
+      navbar!.style.transform = "translateY(-150%)";
+    } else {
+      // Scroll hacia arriba
+      navbar!.style.transform = "translateY(0)";
+    }
 
-        lastScrollTop = scrollTop;
-    });
+    lastScrollTop = scrollTop;
+  });
 </script>
-  

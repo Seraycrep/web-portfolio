@@ -1,45 +1,55 @@
 ---
-const personalImageAlt = "Percy Rojas"
-import Badge from "./Badge.astro"
-import LinkedIn from "./icons/LinkedIn.astro"
-import GitHub from "./icons/GitHub.astro"
-import Mail from "./icons/Mail.astro"
-import SocialPill from "./SocialPill.astro"
+const personalImageAlt = "Percy Rojas";
+import Badge from "./Badge.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import GitHub from "./icons/GitHub.astro";
+import Mail from "./icons/Mail.astro";
+import SocialPill from "./SocialPill.astro";
 ---
+
 <div class="max-w-xl">
-    <div class="flex gap-4 mb-4">           
-        <img 
-            class="rounded-full size-12 mb-4" 
-            src="https://unavatar.io/seraycrep" 
-            alt={personalImageAlt}
-        />
-        <a 
-			href="https://linkedin.com/in/seraycrep" 
-			target="_blank" 
-			rel="noopener" 
-			class="flex justify-center items-center"
-		>
-			<Badge>Disponible para empleo</Badge>
-		</a>
-    </div> 
-	<h1 class="text-gray-700 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-		Hola, soy Percy 
-	</h1>
-	<p class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-		<span class="text-amber-700 dark:text-yellow-300"> Desarrollador web.</span><span class="text-red-600 dark:text-red-300"> De Lima, Perú.</span><span class="text-gray-800 dark:text-white opacity-75"> Especializado en crear aplicaciones responsivas, intuitivas y funcionales.</span>
-    </p>
-	<nav class="flex gap-4 mt-8 flex-wrap">
-		<SocialPill href="https://linkedin.com">
-			<LinkedIn class="size-4 md:size-6" />
-				LinkedIn
-		</SocialPill>
-		<SocialPill href="https://github.com/Seraycrep">
-			<GitHub class="size-4 md:size-6" />
-				GitHub
-		</SocialPill>
-		<SocialPill href="mailto:seraycrep@gmail.com">
-			<Mail class="size-4 md:size-6" />
-				seraycrep@gmail.com
-		</SocialPill>
-	</nav>
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full size-12 mb-4"
+      src="/profile.webp"
+      alt={personalImageAlt}
+    />
+    <a
+      href="https://linkedin.com/in/seraycrep"
+      target="_blank"
+      rel="noopener"
+      class="flex justify-center items-center"
+    >
+      <Badge>Desarrollador Web</Badge>
+    </a>
+  </div>
+  <h1
+    class="text-gray-700 dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10"
+  >
+    Hola, soy Percy
+  </h1>
+  <p class="text-xl lg:text-2xl text-wrap max-w-[700px]">
+    <span class="text-amber-700 dark:text-yellow-300">
+      Estudiante de la carrera de Ingeniería de Software,</span
+    ><span class="text-red-600 dark:text-red-300"> de Lima, Perú.</span><span
+      class="text-gray-800 dark:text-white opacity-75"
+    >
+      Apasionado por el diseño y creación de interfaces de usuario intuitivas y
+      receptivas.</span
+    >
+  </p>
+  <nav class="flex gap-4 mt-8 flex-wrap">
+    <SocialPill href="https://linkedin.com/percyares">
+      <LinkedIn class="size-4 md:size-6" />
+      LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/Seraycrep">
+      <GitHub class="size-4 md:size-6" />
+      GitHub
+    </SocialPill>
+    <SocialPill href="mailto:seraycrep@gmail.com">
+      <Mail class="size-4 md:size-6" />
+      seraycrep@gmail.com
+    </SocialPill>
+  </nav>
 </div>
